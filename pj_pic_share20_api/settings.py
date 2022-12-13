@@ -29,7 +29,7 @@ SECRET_KEY = "django-insecure-42l+(0unm^qp_-w#8r_pm-vh!_5o78vydmar-e9yhz1funry@(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://www.pic-share20.com/']
 
 # 追加
 default_dburl = 'sqlite:///' + str(BASE_DIR / "db.sqlite3")
