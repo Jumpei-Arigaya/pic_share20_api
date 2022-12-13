@@ -1,1 +1,1 @@
-web: gunicorn pic_share20_api.wsgi --log-file -
+web: gunicorn pj_pic_share20_api.wsgi --log-file -
