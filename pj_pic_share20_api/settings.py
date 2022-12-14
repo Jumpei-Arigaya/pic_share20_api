@@ -64,7 +64,6 @@ CORS_ORIGIN_WHITELIST = [
     "http://localhost:3000",
     "https://www.pic-share20.com",
     "http://www.pic-share20.com",
-    "https://pic-share20-api.herokuapp.com/",
     ]
 
 ROOT_URLCONF = "pj_pic_share20_api.urls"
