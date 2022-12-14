@@ -7,7 +7,7 @@ class Users(models.Model):
     password = models.CharField('パスワード', max_length=200)
     introduction = models.TextField('自己紹介文', null=True)
     profile_image = models.ImageField(
-        upload_to='images/', default='https://pic-share20-api.herokuapp.com/media/images/defaultUserIcon.png')
+        upload_to='images/', default='https://pic-share20-api.herokuapp.com/media/https%3A/pic-share20-api.herokuapp.com/media/images/defaultUserIcon.png')
     created_at = models.DateTimeField('作成日', auto_now_add=True)
     updated_at = models.DateTimeField('更新日', auto_now=True)
     deleted_at = models.DateTimeField('削除日', blank=True, null=True)
