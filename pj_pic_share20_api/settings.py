@@ -30,6 +30,7 @@ SECRET_KEY = "django-insecure-42l+(0unm^qp_-w#8r_pm-vh!_5o78vydmar-e9yhz1funry@(
 DEBUG = True
 
 ALLOWED_HOSTS = ['pic-share20-api.herokuapp.com']
+# ALLOWED_HOSTS = ['*']
 
 # 追加
 default_dburl = 'sqlite:///' + str(BASE_DIR / "db.sqlite3")
@@ -60,6 +61,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_WHITELIST = [
+    "http://localhost:3000",
     "https://www.pic-share20.com",
     "http://www.pic-share20.com",
     "https://pic-share20-api.herokuapp.com/",
@@ -107,11 +109,11 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",},
 ]
 
-REST_FRAMEWORK = { 
-    'DEFAULT_RENDERER_CLASSES': (
-        'rest_framework.renderers.JSONRenderer',
-    ),
-}
+# REST_FRAMEWORK = { 
+#     'DEFAULT_RENDERER_CLASSES': (
+#         'rest_framework.renderers.JSONRenderer',
+#     ),
+# }
 
 
 # Internationalization
