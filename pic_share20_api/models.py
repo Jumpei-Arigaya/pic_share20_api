@@ -2,10 +2,10 @@ from django.db import models
 
 
 class Users(models.Model):
-    email = models.CharField('メールアドレス', max_length=100, unique=True)
-    username = models.CharField('ユーザー名', max_length=100, unique=True)
-    password = models.CharField('パスワード', max_length=100)
-    introduction = models.TextField('自己紹介文')
+    email = models.CharField('メールアドレス', max_length=200, unique=True)
+    username = models.CharField('ユーザー名', max_length=15, unique=True)
+    password = models.CharField('パスワード', max_length=200)
+    introduction = models.TextField('自己紹介文', null=True)
     profile_image = models.ImageField(
         upload_to='images/', default='https://pic-share20-api.herokuapp.com/media/images/defaultUserIcon.png')
     created_at = models.DateTimeField('作成日', auto_now_add=True)
