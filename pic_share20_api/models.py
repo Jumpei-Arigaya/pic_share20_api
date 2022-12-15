@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Users(models.Model):
+    user_id = models.CharField('ユーザーID', max_length=200, unique=True)
     email = models.CharField('メールアドレス', max_length=200, unique=True)
     username = models.CharField('ユーザー名', max_length=15, unique=True)
     password = models.CharField('パスワード', max_length=200)
