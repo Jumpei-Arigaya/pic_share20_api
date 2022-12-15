@@ -5,3 +5,4 @@ __pycache__
 *.pyc
 .DS_Store
 media
+pj_pic_share20_api/local_settings.py

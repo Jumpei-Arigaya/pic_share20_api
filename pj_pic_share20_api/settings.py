@@ -51,6 +51,20 @@ INSTALLED_APPS = [
     'cloudinary_storage',
 ]
 
+try:
+    from .local_settings import *
+except ImportError:
+    pass
+
+if not DEBUG:
+    CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'hynpeyums',
+    'API_KEY': os.environ['CLOUDINARY_API_KEY'],
+    'API_SECRET': os.environ['CLOUDINARY_API_SECRET']
+}
+    
+
+
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware', # 追加
     "django.middleware.security.SecurityMiddleware",
