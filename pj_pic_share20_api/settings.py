@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'pic_share20_api', # 追加
     'rest_framework', # 追加
     'corsheaders', # 追加
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -145,3 +147,15 @@ import os
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
+CLOUDINARY_STORAGE = {
+'CLOUD_NAME': 'hynpeyums',
+'API_KEY': '883334457251387',
+'API_SECRET': '8fqssMTIdRfAO_UbVAubOi0CxeA'
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
