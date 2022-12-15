@@ -29,8 +29,7 @@ SECRET_KEY = "django-insecure-42l+(0unm^qp_-w#8r_pm-vh!_5o78vydmar-e9yhz1funry@(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['pic-share20-api.herokuapp.com']
-# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*']
 
 # 追加
 default_dburl = 'sqlite:///' + str(BASE_DIR / "db.sqlite3")
@@ -59,6 +58,7 @@ except ImportError:
 import os
 
 if not DEBUG:
+    ALLOWED_HOSTS = ['pic-share20-api.herokuapp.com']    
     CLOUDINARY_STORAGE = {
     'CLOUD_NAME': 'hynpeyums',
     'API_KEY': os.environ['CLOUDINARY_API_KEY'],
