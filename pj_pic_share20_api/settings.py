@@ -56,6 +56,8 @@ try:
 except ImportError:
     pass
 
+import os
+
 if not DEBUG:
     CLOUDINARY_STORAGE = {
     'CLOUD_NAME': 'hynpeyums',
