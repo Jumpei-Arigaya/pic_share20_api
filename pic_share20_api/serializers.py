@@ -37,6 +37,17 @@ class PostUserSerializer(serializers.ModelSerializer):
 
 class PostsSerializer(serializers.ModelSerializer):
     users = PostUserSerializer(read_only=True)
+    user_id = serializers.PrimaryKeyRelatedField(queryset=Users.objects.all(), write_only=True)
+
+    def create(self, validated_date):
+        validated_date['users'] = validated_date.get('id', None)
+
+        if validated_date['users'] is None:
+            raise serializers.ValidationError("user not found.") 
+
+        del validated_date['id']
+
+        return Posts.objects.create(**validated_date)
 
     class Meta:
         model = Posts

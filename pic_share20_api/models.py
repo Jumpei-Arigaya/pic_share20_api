@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Users(models.Model):
-    user_id = models.CharField('ユーザーID', max_length=200, unique=True)
+    user_id = models.CharField('ユーザーID', max_length=200, unique=True, primary_key=True)
     email = models.CharField('メールアドレス', max_length=200, unique=True)
     username = models.CharField('ユーザー名', max_length=15, unique=True)
     password = models.CharField('パスワード', max_length=200)
@@ -13,8 +13,8 @@ class Users(models.Model):
     updated_at = models.DateTimeField('更新日', auto_now=True)
     deleted_at = models.DateTimeField('削除日', blank=True, null=True)
 
-    def __str__(self):
-        return self.username
+    def __int__(self):
+        return self.user_id
 
 
 class Posts(models.Model):
