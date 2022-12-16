@@ -54,6 +54,7 @@ INSTALLED_APPS = [
 ]
 
 if not DEBUG:
+    SECRET_KEY = os.environ['SECRET_KEY']
     ALLOWED_HOSTS = ['pic-share20-api.herokuapp.com']    
     CLOUDINARY_STORAGE = {
     'CLOUD_NAME': 'hynpeyums',
@@ -61,8 +62,6 @@ if not DEBUG:
     'API_SECRET': os.environ['CLOUDINARY_API_SECRET']
 }
     
-
-
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware', # 追加
     "django.middleware.security.SecurityMiddleware",
@@ -163,11 +162,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
-
-# CLOUDINARY_STORAGE = {
-# 'CLOUD_NAME': 'hynpeyums',
-# 'API_KEY': '883334457251387',
-# 'API_SECRET': '8fqssMTIdRfAO_UbVAubOi0CxeA'
-# }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
