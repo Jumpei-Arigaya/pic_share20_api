@@ -9,6 +9,12 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
+import os
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
 
 # 追加
 from decouple import config
@@ -22,9 +28,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-42l+(0unm^qp_-w#8r_pm-vh!_5o78vydmar-e9yhz1funry@("
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -49,13 +52,6 @@ INSTALLED_APPS = [
     'cloudinary',
     'cloudinary_storage',
 ]
-
-try:
-    from .local_settings import *
-except ImportError:
-    pass
-
-import os
 
 if not DEBUG:
     ALLOWED_HOSTS = ['pic-share20-api.herokuapp.com']    
@@ -168,10 +164,10 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
-CLOUDINARY_STORAGE = {
-'CLOUD_NAME': 'hynpeyums',
-'API_KEY': '883334457251387',
-'API_SECRET': '8fqssMTIdRfAO_UbVAubOi0CxeA'
-}
+# CLOUDINARY_STORAGE = {
+# 'CLOUD_NAME': 'hynpeyums',
+# 'API_KEY': '883334457251387',
+# 'API_SECRET': '8fqssMTIdRfAO_UbVAubOi0CxeA'
+# }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
