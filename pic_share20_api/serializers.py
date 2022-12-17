@@ -25,7 +25,7 @@ class PostUserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Users
-        fields = ("id", "username", 'profile_image',
+        fields = ("user_id", "username", 'profile_image',
                   'follower', 'followered')
 
     def get_follower(self, obj):
@@ -40,12 +40,12 @@ class PostsSerializer(serializers.ModelSerializer):
     user_id = serializers.PrimaryKeyRelatedField(queryset=Users.objects.all(), write_only=True)
 
     def create(self, validated_date):
-        validated_date['users'] = validated_date.get('id', None)
+        validated_date['users'] = validated_date.get('user_id', None)
 
         if validated_date['users'] is None:
             raise serializers.ValidationError("user not found.") 
 
-        del validated_date['id']
+        del validated_date['user_id']
 
         return Posts.objects.create(**validated_date)
 
