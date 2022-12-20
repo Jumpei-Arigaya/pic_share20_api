@@ -46,11 +46,13 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'pic_share20_api', # 追加
+    # 'pic_share20_api', # 追加
+    'pic_share20_api.apps.PicShare20ApiConfig',  # 追加
     'rest_framework', # 追加
     'corsheaders', # 追加
-    'cloudinary',
-    'cloudinary_storage',
+    'cloudinary', # 追加
+    'cloudinary_storage', # 追加
+    "rest_framework_api_key", # 追加 
 ]
 
 if not DEBUG:
@@ -164,3 +166,4 @@ import cloudinary.uploader
 import cloudinary.api
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
